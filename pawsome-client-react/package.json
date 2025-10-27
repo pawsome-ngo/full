@@ -1,0 +1,39 @@
+{
+  "name": "pawsome-client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://pawsome-ngo.github.io",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^7.1.1",
+    "browser-image-compression": "^2.0.2",
+    "jwt-decode": "^4.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.7.1",
+    "sockjs-client": "^1.6.1",
+    "workbox-precaching": "^7.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.1.1",
+    "globals": "^16.3.0",
+    "vite": "^7.0.4",
+    "vite-plugin-pwa": "^1.0.3"
+  }
+}

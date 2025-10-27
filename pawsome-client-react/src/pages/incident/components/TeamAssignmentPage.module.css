@@ -1,0 +1,232 @@
+/* File: pawsome-ngo/full/full-d91a39b5e3886f03789eb932561a5689b5f95888/pawsome-frontend-code-react/src/pages/incident/components/TeamAssignmentPage.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #f8f8f8;
+    min-height: calc(100vh - 60px);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+}
+
+.sortContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+/* Reduce width for the dropdown on this page */
+.sortContainer > div {
+    width: 150px;
+}
+.sortContainer label {
+    font-weight: 600;
+}
+
+/* --- Volunteer List Styles --- */
+.volunteerList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Slightly increased gap */
+}
+
+.volunteerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem; /* Increased padding */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    /* --- Make border thicker and transparent --- */
+    border: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* --- More prominent highlight --- */
+.volunteerCard.selected {
+    background-color: #eaf4ff; /* Light blue background */
+    border-color: #3498db; /* Thicker blue border */
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.25); /* Stronger shadow */
+    transform: scale(1.02); /* Pop out slightly */
+}
+/* --- End Update --- */
+
+.volunteerCard.engaged {
+    background-color: #fcf3e6; /* Light orange for engaged */
+    opacity: 0.8; /* Slightly faded */
+}
+.volunteerCard.engaged.selected {
+    opacity: 1; /* Bring back full opacity if selected */
+}
+
+.volunteerInfo h3 {
+    margin: 0 0 0.15rem 0;
+    font-size: 1.1rem; /* Slightly larger */
+    font-weight: 600; /* Bolder */
+    color: #34495e;
+}
+
+.volunteerSubInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem; /* Slightly larger */
+    color: #95a5a6;
+    text-transform: capitalize;
+}
+
+.separator {
+    color: #ddd;
+}
+
+.distance {
+    font-weight: 600;
+    color: #3498db;
+}
+
+.volunteerIcons {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 1.2rem; /* Larger icons */
+    color: #7f8c8d;
+    align-items: center; /* Vertically align icons */
+}
+
+.interestIcon {
+    color: #e74c3c;
+}
+
+.engagedIcon {
+    color: #f39c12;
+}
+
+.historyIcon {
+    color: #6a82fb;
+}
+
+/* --- ✨ NEW: Icon and Experience Colors --- */
+.vehicleIcon {
+    color: #2980b9; /* Darker blue */
+}
+
+.medkitIcon {
+    color: #27ae60; /* Green */
+}
+
+/* Experience Level Colors */
+.beginner {
+    font-weight: 600;
+    color: #7f8c8d; /* Gray */
+}
+.intermediate {
+    font-weight: 700;
+    color: #3498db; /* Blue */
+}
+.advanced {
+    font-weight: 700;
+    color: #9b59b6; /* Purple */
+}
+.expert {
+    font-weight: 700;
+    color: #e74c3c; /* Red */
+}
+/* --- End New Styles --- */
+
+
+/* --- Footer and Button Styles --- */
+.footer {
+    position: sticky;
+    bottom: 0;
+    left: 0; /* Ensure it spans full width relative to viewport */
+    right: 0;
+    background-color: #ffffff; /* Use white background */
+    padding: 1rem 1.5rem; /* Match container padding */
+    margin: 2rem -1.5rem -1.5rem; /* Extend to screen edges */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.08); /* Shadow at the top */
+    z-index: 100; /* Keep above list content */
+}
+
+.assignButton {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, #2ecc71, #27ae60); /* Gradient */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.assignButton:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.assignButton:disabled {
+    background: #bdc3c7; /* Use gradient or solid color */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* --- ✨ NEW Loading Spinner Styles --- */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* Adjust height */
+    padding: 2rem;
+    color: #7f8c8d;
+    background-color: #f8f8f8; /* Match page background */
+}
+
+.pawSpinner {
+    margin-bottom: 1.5rem;
+}
+
+.pawIcon {
+    font-size: 4rem;
+    color: #fc5c7d; /* Theme color */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+/* --- End Loading Styles --- */

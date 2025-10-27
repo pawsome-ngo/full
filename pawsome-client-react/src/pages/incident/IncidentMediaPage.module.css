@@ -1,0 +1,232 @@
+/* File: pawsome-client-react/src/pages/incident/IncidentMediaPage.module.css */
+
+.container {
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: calc(100vh - 60px);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(45deg, #6a82fb, #fc5c7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- Category Styles --- */
+.categoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.categorySection {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff; /* Give the section a white background */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.categoryHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background-color: #f8f9fa;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #34495e;
+    cursor: pointer;
+    list-style: none; /* Hide default marker */
+}
+.categoryHeader::-webkit-details-marker {
+    display: none;
+}
+.categoryHeader:hover {
+    background-color: #f1f3f5;
+}
+
+.folderIconOpen, .folderIconClosed {
+    color: #3498db;
+}
+
+.categorySection[open] .folderIconClosed { display: none; }
+.categorySection:not([open]) .folderIconOpen { display: none; }
+
+
+/* --- Media Grid Styles --- */
+.mediaGrid {
+    display: grid;
+    /* Responsive grid: 2 columns on small, 3 on medium, 4 on large */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+/* --- Updated Styles for Delete Button Container --- */
+.mediaItemContainer {
+    position: relative; /* To position the delete button */
+    border-radius: 8px; /* Apply radius here */
+    overflow: hidden; /* Keep content clipped */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Moved shadow here */
+}
+
+/* --- Adjusted Media Item Styles --- */
+.mediaItem {
+    background: #f0f0f0; /* Background color for loading */
+    display: block; /* For <a> tags */
+    text-decoration: none; /* For <a> tags */
+    width: 100%; /* Ensure it fills the container */
+    height: 100%; /* Ensure it fills the container */
+}
+
+
+.mediaImage, .mediaVideo, .mediaAudio {
+    width: 100%;
+    display: block;
+}
+
+.mediaImage {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+/* Removed hover effect from image to avoid conflict with button */
+/* .mediaItemContainer:hover .mediaImage {
+    transform: scale(1.05);
+} */
+
+.mediaVideo, .mediaAudio {
+    aspect-ratio: 16 / 9; /* Give videos/audio players a standard shape */
+    background-color: #000; /* Black background for video/audio */
+}
+
+/* Fallback for link items (non-media) */
+.linkItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    color: #34495e;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    height: 100%; /* Ensure it fills container */
+    box-sizing: border-box; /* Include padding in height */
+    aspect-ratio: 1 / 1; /* Match image aspect ratio */
+}
+.linkItem:hover {
+    background-color: #f1f3f5;
+}
+.linkItem svg {
+    font-size: 2rem;
+    color: #6a82fb;
+}
+
+/* --- UPDATED Styles for Delete Button (always visible) --- */
+.deleteButton {
+    position: absolute;
+    top: 8px; /* Slightly more padding from top */
+    right: 8px; /* Slightly more padding from right */
+    background-color: rgba(231, 76, 60, 0.9); /* Slightly more opaque red */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 34px; /* Slightly larger for better touch target */
+    height: 34px; /* Slightly larger for better touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    /* --- REMOVED OPACITY AND TRANSITION FOR ALWAYS VISIBLE --- */
+    /* opacity: 0; */
+    transition: background-color 0.2s; /* Only transition background on hover */
+    font-size: 1rem; /* Slightly larger icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    padding: 0; /* Reset padding */
+}
+
+/* Removed hover effect for opacity, button is now always visible */
+/* .mediaItemContainer:hover .deleteButton {
+    opacity: 1;
+} */
+
+.deleteButton:hover {
+    background-color: rgba(192, 57, 43, 1); /* Darker red on hover */
+}
+
+.deleteButton:disabled {
+    background-color: rgba(149, 165, 166, 0.8);
+    cursor: not-allowed;
+    box-shadow: none; /* No shadow when disabled */
+}
+/* --- End Updated Delete Button Styles --- */
+
+
+/* --- Error Message Style (for confirmation modal) --- */
+.errorMessage {
+    color: #e74c3c;
+    background-color: #fbeae5;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* --- Empty State (unchanged) --- */
+.emptyState {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+.emptyIcon {
+    font-size: 4rem;
+    color: #b0c4de;
+    margin-bottom: 1.5rem;
+}
+.emptyState h1, .emptyState h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.emptyState p {
+    color: #7f8c8d;
+    max-width: 500px;
+    margin: 0.75rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}

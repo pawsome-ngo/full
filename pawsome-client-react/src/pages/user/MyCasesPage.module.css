@@ -1,0 +1,252 @@
+.container {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(45deg, #6a82fb, #fc5c7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 0.25rem 0 0 0;
+}
+
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cardLink {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1.5rem;
+}
+
+.assigned { background: linear-gradient(45deg, #3498db, #2980b9); }
+.in_progress { background: linear-gradient(45deg, #f39c12, #e67e22); }
+.ongoing { background: linear-gradient(45deg, #9b59b6, #8e44ad); }
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cardIcon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.headerText h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.statusTag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.cardBody {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.infoRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.infoRow svg {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+.infoRow p {
+    margin: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+.cardFooter {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.cardActions {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.actionButton {
+    width: 100%;
+    padding: 0.9rem;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionButton:hover:not(:disabled) {
+    background-color: white;
+    transform: scale(1.02);
+}
+
+.actionButton:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    color: #7f8c8d;
+}
+
+/* --- ✨ Removed old spinner styles --- */
+/* Removed .spinner and @keyframes spin */
+
+
+/* --- Empty State --- */
+.emptyState {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    color: #b0c4de;
+    margin-bottom: 1.5rem;
+}
+
+.emptyState h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.emptyState p {
+    color: #7f8c8d;
+    max-width: 500px;
+    margin: 0.75rem auto 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.actionButtonLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.actionButtonLink:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- ✨ NEW Loading Indicator Styles (Copied from LivePage.module.css) --- */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    padding: 2rem;
+    color: #7f8c8d;
+}
+
+.pawSpinner {
+    margin-bottom: 1.5rem;
+}
+
+.pawIcon {
+    font-size: 4rem;
+    color: #fc5c7d; /* Theme color */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}

@@ -1,0 +1,305 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    padding: 1rem;
+}
+
+.modalContent {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modalContent h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1.25rem;
+}
+
+.formGroup label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-size: 0.9rem;
+}
+
+.formGroup textarea, .formGroup input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.locationButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #3498db;
+    background: #fff;
+    color: #3498db;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.locationButton:hover {
+    background-color: #f0f8ff;
+}
+
+/* --- New styles for the location warning --- */
+.locationWarning {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #fffbe6;
+    color: #8a6d3b;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    border: 1px solid #f2e2a8;
+}
+
+.highlightButton {
+    background-color: #f1c40f;
+    color: #fff;
+    border-color: #f1c40f;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(241, 196, 15, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+}
+
+
+.feedbackArea {
+    min-height: 20px;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.cancelButton, .submitButton, .copyButton {
+    flex: 1;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.cancelButton {
+    background-color: #ecf0f1;
+    color: #555;
+}
+.cancelButton:hover {
+    background-color: #e0e6e8;
+}
+
+.submitButton {
+    background-color: #2ecc71;
+    color: #fff;
+}
+.submitButton:hover {
+    background-color: #27ae60;
+}
+
+.copyButton {
+    background-color: #3498db;
+    color: #fff;
+}
+.copyButton:hover {
+    background-color: #2980b9;
+}
+
+.submitButton:disabled, .copyButton:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Add these styles to MarkAsDoneModal.module.css */
+
+.toggleGroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes label and toggle apart */
+    background-color: #f8f9fa; /* Light background for emphasis */
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem; /* Space above */
+    margin-bottom: 1.25rem; /* Space below */
+}
+
+.toggleGroup label {
+    margin-bottom: 0; /* Remove default bottom margin */
+    font-size: 0.9rem; /* Match other labels */
+}
+
+.toggleSwitch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem; /* Adjust size of toggle icon */
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+}
+
+.toggleOn { color: #2ecc71; } /* Green for On */
+.toggleOff { color: #bdc3c7; } /* Gray for Off */
+
+.toggleText {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #555;
+}
+
+
+/* Adjust file input label if needed */
+input[type="file"] {
+    display: block; /* Make sure it takes block space */
+    color: #555;
+    font-size: 0.9rem;
+    /* You might want to style the button that appears */
+}
+input[type="file"]::file-selector-button {
+    margin-right: 0.8rem;
+    border: thin solid #ccc;
+    background: #f1f3f5;
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #e9ecef;
+}
+/* Add these styles for the file list */
+
+.fileList {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem; /* Space below the label */
+    margin-bottom: 1.25rem; /* Space below the list */
+    max-height: 150px; /* Limit height and allow scrolling */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.fileListItem {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+.fileListItem:last-child {
+    border-bottom: none;
+}
+
+.fileIcon {
+    color: #95a5a6; /* Gray icon */
+    margin-right: 0.5rem;
+    flex-shrink: 0; /* Prevent icon shrinking */
+}
+
+.fileName {
+    flex-grow: 1; /* Allow name to take up space */
+    font-size: 0.9rem;
+    color: #34495e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ... for long names */
+    margin-right: 0.5rem; /* Space before delete button */
+}
+
+.fileDeleteButton {
+    background: none;
+    border: none;
+    color: #95a5a6; /* Gray icon */
+    cursor: pointer;
+    padding: 0.25rem; /* Small padding */
+    font-size: 0.9rem; /* Adjust icon size */
+    flex-shrink: 0; /* Prevent button shrinking */
+}
+
+.fileDeleteButton:hover:not(:disabled) {
+    color: #e74c3c; /* Red on hover */
+}
+
+.fileDeleteButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+
+/* --- Keep existing styles below --- */
+/* .modalOverlay { ... } */
+/* .modalContent { ... } */
+/* ... etc ... */
+
+/* Adjust formGroup margin if needed */
+.formGroup {
+    margin-bottom: 1rem; /* Slightly reduced default margin */
+}
+
+/* Keep other existing styles below */
+/* ... existing styles ... */

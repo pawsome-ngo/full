@@ -1,0 +1,256 @@
+/* File: pawsome-ngo/full/full-d91a39b5e3886f03789eb932561a5689b5f95888/pawsome-frontend-code-react/src/pages/user/ProfilePage.module.css */
+
+/* --- Base Container & Utilities --- */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    background: #f0f2f5;
+    min-height: 100vh;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.spinner {
+    font-size: 3rem;
+    color: #fc5c7d;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.error {
+    color: #e74c3c;
+    text-align: center;
+    padding: 2rem;
+    background-color: #ffebee;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Header Section (Top Gradient Bar) --- */
+.topHeaderBackground {
+    background: linear-gradient(45deg, #fc5c7d, #fc5c7d); /* Updated gradient */
+    padding-top: 2rem;
+    padding-bottom: 70px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* --- Avatar & Profile Info --- */
+.avatarContainer {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 5px;
+    position: absolute;
+    bottom: -65px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.avatarContainer:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profileInfo {
+    text-align: center;
+    padding: 5rem 1.5rem 1.5rem; /* Increased top padding for avatar */
+    background-color: white;
+    margin-bottom: 1.5rem;
+    /* Removed bottom radius as it's no longer the first card */
+}
+
+.profileInfo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.profileInfo p {
+    margin: 0.5rem 0 0;
+    color: #777;
+    font-size: 1rem;
+}
+
+/* --- Card Styles (White, Raised) --- */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem 2rem; /* Reduced padding slightly */
+    margin: 0 1.5rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Softer shadow */
+}
+
+.card h2 {
+    margin: 0 0 1rem 0; /* Reduced bottom margin */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+/* --- Stats Grid (No change) --- */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    text-align: center;
+}
+.statItem span {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+.gradientText {
+    background: linear-gradient(45deg, #fc5c7d, #e74c3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.statItem p {
+    margin: 0;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* --- ✨ REDESIGNED Setting Sections --- */
+.settingSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0; /* Add padding for spacing */
+    border-bottom: 1px solid #f0f0f0; /* Divider line */
+}
+.card .settingSection:last-of-type {
+    border-bottom: none; /* Remove border for last item in card */
+}
+
+/* Make all h2s in setting sections consistent */
+.settingSection h2 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem; /* Consistent font size */
+    font-weight: 600; /* Medium weight */
+    letter-spacing: normal;
+    text-transform: none; /* No uppercase */
+}
+
+/* Style for the new toggle switch button */
+.toggleSwitch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.toggleOn { color: #2ecc71; } /* Green */
+.toggleOff { color: #ccc; } /* Light gray */
+
+/* Re-style old toggle button text */
+.statusOn { color: #2ecc71; font-weight: 600; }
+.statusOff { color: #888; font-weight: 600; }
+
+/* Style for action buttons (now aligned right) */
+.actionButton {
+    padding: 0.6rem 1.2rem; /* Smaller button */
+    background: linear-gradient(45deg, #fc5c7d, #e74c3c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem; /* Smaller font */
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.2s, transform 0.2s;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.actionButton:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+.actionButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.spinnerIcon {
+    animation: spin 1s linear infinite;
+}
+
+/* Message for location update */
+.message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem; /* Space from button */
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #333;
+}
+.message.success { background-color: #d4edda; border: 1px solid #2ecc71; color: #155724; }
+.message.error { background-color: #f8d7da; border: 1px solid #e74c3c; color: #721c24; }
+.message.info { background-color: #d1ecf1; border: 1px solid #3498db; color: #0c5460; }
+
+/* Manage Kit button container (no change) */
+.manageKitContainer {
+    margin-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1rem;
+    text-align: right; /* Aligns button to the right */
+}
+
+/* --- ✨ NEW: Vehicle Type Dropdown Style --- */
+.vehicleTypeSelector {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.vehicleTypeSelector label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    padding-left: 0; /* Align with h2 */
+}
+.vehicleTypeSelector > div { /* Target the CustomSelect's wrapper */
+    width: 150px; /* Give dropdown a specific width */
+}

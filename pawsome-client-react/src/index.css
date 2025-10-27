@@ -1,0 +1,22 @@
+/* --- Global Style Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light; /* This is the key fix */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fdfdfd;
+}
+/* Add this to prevent background scroll when a modal is open */
+body.modal-open {
+  overflow: hidden;
+}

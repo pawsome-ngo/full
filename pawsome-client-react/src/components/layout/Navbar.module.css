@@ -1,0 +1,283 @@
+/* File: pawsome-client-react/src/components/layout/Navbar.module.css */
+
+/* --- Base Header Styles --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fc5c7d;
+    color: white;
+    border: none !important;
+    box-shadow: none !important;
+    /* --- ✨ FIX --- */
+    /* Removed the box-shadow property */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    /* Explicitly remove any top border that might be rendered */
+    /*border-style: none !important;*/
+    /* --- End Fix --- */
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.4s ease; /* Smooth transition */
+}
+
+/* ✨ NEW: Style for when the header is open on mobile */
+.headerOpen {
+    background: linear-gradient(45deg, #fc5c7d, #e74c3c);
+}
+
+/* --- Logo Styles --- */
+.logoLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logoLink:hover {
+    transform: scale(1.05);
+}
+
+.logoIcon {
+    font-size: 2.2rem;
+    margin-right: 0.75rem;
+    color: white; /* UPDATED: White icon */
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+}
+
+.logoText {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white; /* UPDATED: White text */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+/* --- Desktop Navigation Links --- */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navLink {
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85); /* UPDATED: Slightly transparent white */
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+
+    /* --- ✨ FIX: Added Flex properties for alignment --- */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    /* --- End Fix --- */
+}
+
+.navLink:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: white; /* UPDATED: White underline */
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.navLink:hover {
+    color: white; /* UPDATED: Fully opaque on hover */
+}
+
+.navLink:hover:after,
+.activeLink:after {
+    width: 100%;
+}
+
+.activeLink {
+    color: white; /* UPDATED: Active link is fully white */
+}
+
+/* --- Logout Button --- */
+.logoutButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.85); /* UPDATED: Slightly transparent white */
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 1rem;
+    transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* UPDATED: Subtle hover effect */
+    color: white;
+}
+
+/* --- Mobile & Responsive Styles --- */
+@media (max-width: 992px) {
+    .header {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        max-width: 350px;
+        height: 100%;
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to fill width */
+        padding: 6rem 0; /* Padding top/bottom, zero left/right */
+        gap: 0; /* Remove gap to use dividers */
+        /* UPDATED: Mobile menu now has the red gradient too */
+        background: linear-gradient(180deg, #fc5c7d, #e74c3c);
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        z-index: 1001;
+        overflow-y: auto;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navOpen {
+        transform: translateX(0);
+    }
+
+    .navBackdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease;
+        z-index: 1000;
+    }
+
+    .navBackdropOpen {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navLink {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 1.2rem 2.5rem; /* More spacious padding */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* UPDATED: Divider color */
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: slideIn 0.5s forwards;
+        color: rgba(255, 255, 255, 0.9); /* UPDATED: Mobile link color */
+
+        /* --- ✨ FIX: Ensure flex properties are set for mobile --- */
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        /* --- End Fix --- */
+    }
+
+    .navLink:first-of-type {
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* UPDATED: Divider color */
+    }
+
+    .activeLink {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.15); /* UPDATED: Active link background */
+        font-weight: 700;
+    }
+
+    .navLink:hover {
+        background-color: rgba(0, 0, 0, 0.1); /* UPDATED: Hover background */
+    }
+
+    .logoutButton {
+        width: auto; /* Don't force to full width */
+        font-size: 1.2rem;
+        margin: 2rem auto 0; /* Center the button */
+        padding: 0.8rem 2.5rem;
+        background: rgba(0, 0, 0, 0.2); /* UPDATED: Logout button background */
+        color: white;
+        border-radius: 50px;
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: slideIn 0.5s forwards;
+    }
+
+    .logoutButton:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Staggered animation for menu items */
+    .navOpen .navLink:nth-child(1) { animation-delay: 0.1s; }
+    .navOpen .navLink:nth-child(2) { animation-delay: 0.15s; }
+    .navOpen .navLink:nth-child(3) { animation-delay: 0.2s; }
+    .navOpen .navLink:nth-child(4) { animation-delay: 0.25s; }
+    .navOpen .navLink:nth-child(5) { animation-delay: 0.3s; }
+    .navOpen .navLink:nth-child(6) { animation-delay: 0.35s; }
+    .navOpen .navLink:nth-child(7) { animation-delay: 0.4s; }
+    .navOpen .navLink:nth-child(8) { animation-delay: 0.45s; }
+    .navOpen .navLink:nth-child(9) { animation-delay: 0.5s; }
+    /* Adjust animation delay for dynamic links if needed */
+    .navOpen .logoutButton { animation-delay: 0.55s; }
+
+
+    @keyframes slideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* --- Animated Hamburger Icon --- */
+    .menuToggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1002;
+    }
+
+    .hamburgerLine {
+        width: 2rem;
+        height: 3px;
+        background: white; /* UPDATED: Hamburger color */
+        border-radius: 10px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+    }
+
+    .menuToggleOpen .hamburgerLine:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .menuToggleOpen .hamburgerLine:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .menuToggleOpen .hamburgerLine:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+}
